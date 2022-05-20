@@ -8,7 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\osu.Rulesets.Difficulty.Extended.Catch\osu.Rulesets.Difficulty.Extended.Catch.csproj" />
+      <ProjectReference Include="..\osu.Rulesets.Difficulty.Extended.Mania\osu.Rulesets.Difficulty.Extended.Mania.csproj" />
       <ProjectReference Include="..\osu.Rulesets.Difficulty.Extended.Osu\osu.Rulesets.Difficulty.Extended.Osu.csproj" />
+      <ProjectReference Include="..\osu.Rulesets.Difficulty.Extended.Taiko\osu.Rulesets.Difficulty.Extended.Taiko.csproj" />
       <ProjectReference Include="..\osu.Rulesets.Difficulty.Statistics\osu.Rulesets.Difficulty.Statistics.csproj" />
     </ItemGroup>
 

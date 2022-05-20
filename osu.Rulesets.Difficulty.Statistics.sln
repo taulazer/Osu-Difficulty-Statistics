@@ -13,6 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Rulesets.Difficulty.Extended.Taiko", "osu.Rulesets.Difficulty.Extended.Taiko\osu.Rulesets.Difficulty.Extended.Taiko.csproj", "{2CDB2415-AFC1-4AE1-908E-124CD5E9E437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Rulesets.Difficulty.Extended.Catch", "osu.Rulesets.Difficulty.Extended.Catch\osu.Rulesets.Difficulty.Extended.Catch.csproj", "{251D842A-35DA-4DA1-B285-5E9A5CA9485E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Rulesets.Difficulty.Extended.Mania", "osu.Rulesets.Difficulty.Extended.Mania\osu.Rulesets.Difficulty.Extended.Mania.csproj", "{568611CE-2D1F-44E2-92C3-DAFC73AE319C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,5 +41,25 @@ Global
 		{F9180D7F-5469-42E2-A512-03CD2644FB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9180D7F-5469-42E2-A512-03CD2644FB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9180D7F-5469-42E2-A512-03CD2644FB84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D07E75D-70E3-4FC4-9D4F-1678481FE789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D07E75D-70E3-4FC4-9D4F-1678481FE789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D07E75D-70E3-4FC4-9D4F-1678481FE789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D07E75D-70E3-4FC4-9D4F-1678481FE789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23FC60D-BAF6-4AA4-8623-863B75D08FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23FC60D-BAF6-4AA4-8623-863B75D08FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23FC60D-BAF6-4AA4-8623-863B75D08FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23FC60D-BAF6-4AA4-8623-863B75D08FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDB2415-AFC1-4AE1-908E-124CD5E9E437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDB2415-AFC1-4AE1-908E-124CD5E9E437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDB2415-AFC1-4AE1-908E-124CD5E9E437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDB2415-AFC1-4AE1-908E-124CD5E9E437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{251D842A-35DA-4DA1-B285-5E9A5CA9485E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251D842A-35DA-4DA1-B285-5E9A5CA9485E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251D842A-35DA-4DA1-B285-5E9A5CA9485E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251D842A-35DA-4DA1-B285-5E9A5CA9485E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{568611CE-2D1F-44E2-92C3-DAFC73AE319C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{568611CE-2D1F-44E2-92C3-DAFC73AE319C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{568611CE-2D1F-44E2-92C3-DAFC73AE319C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{568611CE-2D1F-44E2-92C3-DAFC73AE319C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

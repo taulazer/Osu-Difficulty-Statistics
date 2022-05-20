@@ -7,4 +7,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\osu.Rulesets.Difficulty.Extended.Osu\osu.Rulesets.Difficulty.Extended.Osu.csproj" />
+      <ProjectReference Include="..\osu.Rulesets.Difficulty.Statistics\osu.Rulesets.Difficulty.Statistics.csproj" />
+    </ItemGroup>
+
 </Project>

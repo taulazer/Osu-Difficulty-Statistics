@@ -80,6 +80,6 @@ public class DifficultyDebuggerScreen : Container
     {
         Debug.Assert(ruleset.ruleset != null);
 
-        return content;
+        return new DebuggerSkinProvidingContainer(DebuggerBeatmap).WithChild(content);
     }
 }

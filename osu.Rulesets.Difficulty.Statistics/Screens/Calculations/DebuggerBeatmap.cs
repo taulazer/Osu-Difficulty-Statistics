@@ -50,6 +50,12 @@ public class DebuggerBeatmap : TransactionalCommitComponent, IBeatmap, IBeatSnap
     public IBindable<bool> HasTiming => hasTiming;
 
     private readonly Bindable<bool> hasTiming = new Bindable<bool>();
+    
+    [CanBeNull]
+    public readonly DebuggerBeatmapSkin BeatmapSkin;
+
+    [CanBeNull]
+    public readonly ExtendedRulesetInfo Ruleset;
 
     [Resolved]
     private BindableBeatDivisor beatDivisor { get; set; }
@@ -63,6 +69,7 @@ public class DebuggerBeatmap : TransactionalCommitComponent, IBeatmap, IBeatSnap
 
     public DebuggerBeatmap(ExtendedRulesetInfo ruleset, IBeatmap playableBeatmap, ISkin beatmapSkin = null, BeatmapInfo beatmapInfo = null)
     {
+        Ruleset = ruleset;
         PlayableBeatmap = playableBeatmap;
 
         // ensure we are not working with legacy control points.
@@ -91,6 +98,9 @@ public class DebuggerBeatmap : TransactionalCommitComponent, IBeatmap, IBeatSnap
         }
 
         this.beatmapInfo = beatmapInfo ?? playableBeatmap.BeatmapInfo;
+        
+        if (beatmapSkin is Skin skin)
+            BeatmapSkin = new DebuggerBeatmapSkin(skin);
 
         beatmapProcessor = ruleset.CreateInstance().ruleset.CreateBeatmapProcessor(PlayableBeatmap);
 

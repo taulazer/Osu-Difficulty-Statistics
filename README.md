@@ -15,7 +15,7 @@ Some tools we provide are:
 
 This project was designed with not interfering with your original codebase, but building on top of it. Inheriting [`IExtendedRuleset`](https://github.com/taulazer/Osu-Difficulty-Statistics/blob/master/osu.Rulesets.Difficulty.Statistics/Rulesets/IExtendedRuleset.cs) will give you everything you need to start building on top of your custom ruleset.
 
-You can see an example of an "extended" ruleset via [Tau's integration]().
+You can see an example of an "extended" ruleset via [Tau's integration](https://github.com/taulazer/Extended-Tau).
 
 ## Development
 When developing or debugging the codebase, a few prerequisites are required as following:

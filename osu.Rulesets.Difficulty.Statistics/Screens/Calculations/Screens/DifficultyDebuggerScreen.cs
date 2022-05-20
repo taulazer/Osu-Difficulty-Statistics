@@ -40,9 +40,10 @@ public class DifficultyDebuggerScreen : Container
     {
         var dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
 
+        var mods = parent.Get<IReadOnlyList<Mod>>();
         DebuggerBeatmap = parent.Get<DebuggerBeatmap>();
         ruleset = parent.Get<Bindable<ExtendedRulesetInfo>>().Value.CreateInstance();
-        playfield = ruleset.extendedRuleset?.CreateDebuggerRuleset(DebuggerBeatmap.PlayableBeatmap, new[] { ruleset.ruleset.GetAutoplayMod() }).With(d =>
+        playfield = ruleset.extendedRuleset?.CreateDebuggerRuleset(DebuggerBeatmap.PlayableBeatmap, mods.Concat(new[] { ruleset.ruleset.GetAutoplayMod() }).ToList()).With(d =>
         {
             d.Playfield.DisplayJudgements.Value = false;
             d.OnLoadComplete += _ =>

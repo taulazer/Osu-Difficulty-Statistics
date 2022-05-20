@@ -40,7 +40,7 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
     
     protected override IReadOnlyDependencyContainer CreateChildDependencies(IReadOnlyDependencyContainer parent)
         => dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
-    
+
     [BackgroundDependencyLoader]
     private void load()
     {
@@ -48,7 +48,7 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
 
         try
         {
-            playableBeatmap = loadableBeatmap.GetPlayableBeatmap(Ruleset.Value);
+            playableBeatmap = loadableBeatmap.GetPlayableBeatmap(Ruleset.Value, Mods.Value);
 
             // clone these locally for now to avoid incurring overhead on GetPlayableBeatmap usages.
             // eventually we will want to improve how/where this is done as there are issues with *not* cloning it in all cases.
@@ -61,6 +61,8 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
             this.Exit();
             return;
         }
+        
+        dependencies.CacheAs(Mods.Value);
         
         clock = new EditorClock(playableBeatmap, beatDivisor) { IsCoupled = false };
         clock.ChangeSource(loadableBeatmap.Track);

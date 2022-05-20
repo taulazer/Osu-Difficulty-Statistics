@@ -51,9 +51,6 @@ public class DebuggerBeatmap : TransactionalCommitComponent, IBeatmap, IBeatSnap
 
     private readonly Bindable<bool> hasTiming = new Bindable<bool>();
 
-    [CanBeNull]
-    public readonly EditorBeatmapSkin BeatmapSkin;
-
     [Resolved]
     private BindableBeatDivisor beatDivisor { get; set; }
 
@@ -94,9 +91,6 @@ public class DebuggerBeatmap : TransactionalCommitComponent, IBeatmap, IBeatSnap
         }
 
         this.beatmapInfo = beatmapInfo ?? playableBeatmap.BeatmapInfo;
-
-        if (beatmapSkin is Skin skin)
-            BeatmapSkin = new EditorBeatmapSkin(skin);
 
         beatmapProcessor = ruleset.CreateInstance().ruleset.CreateBeatmapProcessor(PlayableBeatmap);
 

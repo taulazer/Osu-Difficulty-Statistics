@@ -9,6 +9,7 @@ using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Edit;
 using osu.Game.Screens.Edit;
 using osu.Game.Screens.Play;
+using osu.Rulesets.Difficulty.Statistics.Rulesets;
 using osu.Rulesets.Difficulty.Statistics.Screens.Calculations.Screens;
 using osuTK.Graphics;
 using osuTK.Input;
@@ -29,8 +30,11 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
     private EditorClock clock;
 
     private IBeatmap playableBeatmap;
-    private EditorBeatmap editorBeatmap;
+    private DebuggerBeatmap debuggerBeatmap;
     
+    [Resolved]
+    private Bindable<ExtendedRulesetInfo> currentRuleset { get; set; }
+
     private DependencyContainer dependencies;
     
     protected override IReadOnlyDependencyContainer CreateChildDependencies(IReadOnlyDependencyContainer parent)
@@ -65,14 +69,14 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
 
         clock.SeekingOrStopped.BindValueChanged(_ => updateSampleDisabledState());
 
-        // todo: remove caching of this and consume via editorBeatmap?
+        // todo: remove caching of this and consume via debuggerBeatmap?
         dependencies.Cache(beatDivisor);
         
-        AddInternal(editorBeatmap = new EditorBeatmap(playableBeatmap, loadableBeatmap.Skin, loadableBeatmap.BeatmapInfo));
-        dependencies.CacheAs(editorBeatmap);
+        AddInternal(debuggerBeatmap = new DebuggerBeatmap(currentRuleset.Value, playableBeatmap, loadableBeatmap.Skin, loadableBeatmap.BeatmapInfo));
+        dependencies.CacheAs(debuggerBeatmap);
         
-        beatDivisor.Value = editorBeatmap.BeatmapInfo.BeatDivisor;
-        beatDivisor.BindValueChanged(divisor => editorBeatmap.BeatmapInfo.BeatDivisor = divisor.NewValue);
+        beatDivisor.Value = debuggerBeatmap.BeatmapInfo.BeatDivisor;
+        beatDivisor.BindValueChanged(divisor => debuggerBeatmap.BeatmapInfo.BeatDivisor = divisor.NewValue);
         
         Schedule(() =>
         {
@@ -217,9 +221,9 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
             clock.SeekForward(!trackPlaying, amount);
     }
     
-    public double SnapTime(double time, double? referenceTime) => editorBeatmap.SnapTime(time, referenceTime);
+    public double SnapTime(double time, double? referenceTime) => debuggerBeatmap.SnapTime(time, referenceTime);
 
-    public double GetBeatLengthAtTime(double referenceTime) => editorBeatmap.GetBeatLengthAtTime(referenceTime);
+    public double GetBeatLengthAtTime(double referenceTime) => debuggerBeatmap.GetBeatLengthAtTime(referenceTime);
 
     public int BeatDivisor => beatDivisor.Value;
 }

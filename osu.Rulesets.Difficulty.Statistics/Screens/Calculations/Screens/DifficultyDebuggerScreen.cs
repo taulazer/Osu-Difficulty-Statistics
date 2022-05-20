@@ -15,7 +15,7 @@ namespace osu.Rulesets.Difficulty.Statistics.Screens.Calculations.Screens;
 
 public class DifficultyDebuggerScreen : Container
 {
-    protected EditorBeatmap EditorBeatmap { get; private set; }
+    protected DebuggerBeatmap DebuggerBeatmap { get; private set; }
     
     [Resolved]
     private GameHost host { get; set; }
@@ -40,9 +40,9 @@ public class DifficultyDebuggerScreen : Container
     {
         var dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
 
-        EditorBeatmap = parent.Get<EditorBeatmap>();
+        DebuggerBeatmap = parent.Get<DebuggerBeatmap>();
         ruleset = parent.Get<Bindable<ExtendedRulesetInfo>>().Value.CreateInstance();
-        playfield = ruleset.extendedRuleset?.CreateDebuggerRuleset(EditorBeatmap.PlayableBeatmap, new[] { ruleset.ruleset.GetAutoplayMod() }).With(d =>
+        playfield = ruleset.extendedRuleset?.CreateDebuggerRuleset(DebuggerBeatmap.PlayableBeatmap, new[] { ruleset.ruleset.GetAutoplayMod() }).With(d =>
         {
             d.Playfield.DisplayJudgements.Value = false;
             d.OnLoadComplete += _ =>
@@ -61,7 +61,7 @@ public class DifficultyDebuggerScreen : Container
     private void regenerateAutoplay(DrawableRuleset drawableRuleset)
     {
         var autoplayMod = drawableRuleset.Mods.OfType<ModAutoplay>().Single();
-        drawableRuleset.SetReplayScore(autoplayMod.CreateScoreFromReplayData(EditorBeatmap.PlayableBeatmap, drawableRuleset.Mods));
+        drawableRuleset.SetReplayScore(autoplayMod.CreateScoreFromReplayData(DebuggerBeatmap.PlayableBeatmap, drawableRuleset.Mods));
     }
     
     protected Drawable CreateMainContent()
@@ -80,6 +80,6 @@ public class DifficultyDebuggerScreen : Container
     {
         Debug.Assert(ruleset.ruleset != null);
 
-        return new EditorSkinProvidingContainer(EditorBeatmap).WithChild(content);
+        return content;
     }
 }

@@ -7,6 +7,7 @@ using osu.Framework.Screens;
 using osu.Game.Audio;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Edit;
+using osu.Game.Rulesets.Objects;
 using osu.Game.Screens.Edit;
 using osu.Game.Screens.Play;
 using osu.Rulesets.Difficulty.Statistics.Rulesets;
@@ -125,9 +126,56 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
             case Key.Right:
                 seek(e, 1);
                 return true;
+            
+            // Track traversal keys.
+            // Matching osu-stable implementations.
+            case Key.Z:
+                // Seek to first object time, or track start if already there.
+                double? firstObjectTime = debuggerBeatmap.HitObjects.FirstOrDefault()?.StartTime;
+
+                if (firstObjectTime == null || clock.CurrentTime == firstObjectTime)
+                    clock.Seek(0);
+                else
+                    clock.Seek(firstObjectTime.Value);
+                return true;
+
+            case Key.X:
+                // Restart playback from beginning of track.
+                clock.Seek(0);
+                clock.Start();
+                return true;
+
+            case Key.C:
+                // Pause or resume.
+                togglePause();
+                return true;
+
+            case Key.V:
+                // Seek to last object time, or track end if already there.
+                // Note that in osu-stable subsequent presses when at track end won't return to last object.
+                // This has intentionally been changed to make it more useful.
+                double? lastObjectTime = debuggerBeatmap.HitObjects.LastOrDefault()?.GetEndTime();
+
+                if (lastObjectTime == null || clock.CurrentTime == lastObjectTime)
+                    clock.Seek(clock.TrackLength);
+                else
+                    clock.Seek(lastObjectTime.Value);
+                return true;
+            
+            case Key.Space:
+                togglePause();
+                return true;
         }
 
         return true;
+    }
+    
+    private void togglePause()
+    {
+        if (clock.IsRunning)
+            clock.Stop();
+        else
+            clock.Start();
     }
 
     private double scrollAccumulation;

@@ -42,16 +42,14 @@ public class DifficultyDebuggerScreen : Container
 
         EditorBeatmap = parent.Get<EditorBeatmap>();
         ruleset = parent.Get<Bindable<ExtendedRulesetInfo>>().Value.CreateInstance();
-        // playfield = ruleset.extendedRuleset?.CreateDebuggerPlayfield();
-        var convert = ruleset.ruleset?.CreateBeatmapConverter(EditorBeatmap.PlayableBeatmap).Convert();
-        playfield = ruleset.extendedRuleset?.CreateDebuggerRuleset(convert, new[] { ruleset.ruleset.GetAutoplayMod() }).With(d =>
+        playfield = ruleset.extendedRuleset?.CreateDebuggerRuleset(EditorBeatmap.PlayableBeatmap, new[] { ruleset.ruleset.GetAutoplayMod() }).With(d =>
         {
             d.Playfield.DisplayJudgements.Value = false;
             d.OnLoadComplete += _ =>
             {
                 Scheduler.AddOnce(() => regenerateAutoplay(d));
             };
-        });
+        })!;
 
         // make the composer available to the timeline and other components in this screen.
         if (playfield != null)

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Rulesets.Difficulty.Statistics", "osu.Rulesets.Difficulty.Statistics\osu.Rulesets.Difficulty.Statistics.csproj", "{4B275161-136C-4367-926D-376ADA87B373}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Rulesets.Difficulty.Statistics.Desktop", "osu.Rulesets.Difficulty.Statistics.Desktop\osu.Rulesets.Difficulty.Statistics.Desktop.csproj", "{35DF58B9-29C8-421B-9032-00B807E0A658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Rulesets.Difficulty.Statistics.Tests", "osu.Rulesets.Difficulty.Statistics.Tests\osu.Rulesets.Difficulty.Statistics.Tests.csproj", "{63AFFCCF-4A51-42B0-B7A1-3329A5299A5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Rulesets.Difficulty.Extended.Osu", "osu.Rulesets.Difficulty.Extended.Osu\osu.Rulesets.Difficulty.Extended.Osu.csproj", "{F9180D7F-5469-42E2-A512-03CD2644FB84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{2933B4F9-54C2-491D-9707-90478CF6BC59}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B275161-136C-4367-926D-376ADA87B373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B275161-136C-4367-926D-376ADA87B373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B275161-136C-4367-926D-376ADA87B373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B275161-136C-4367-926D-376ADA87B373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35DF58B9-29C8-421B-9032-00B807E0A658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DF58B9-29C8-421B-9032-00B807E0A658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DF58B9-29C8-421B-9032-00B807E0A658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DF58B9-29C8-421B-9032-00B807E0A658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AFFCCF-4A51-42B0-B7A1-3329A5299A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AFFCCF-4A51-42B0-B7A1-3329A5299A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AFFCCF-4A51-42B0-B7A1-3329A5299A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AFFCCF-4A51-42B0-B7A1-3329A5299A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9180D7F-5469-42E2-A512-03CD2644FB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9180D7F-5469-42E2-A512-03CD2644FB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9180D7F-5469-42E2-A512-03CD2644FB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9180D7F-5469-42E2-A512-03CD2644FB84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -3,6 +3,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Shapes;
 using osu.Framework.Platform;
 using osu.Game.Rulesets;
 using osu.Game.Rulesets.Mods;
@@ -81,6 +82,43 @@ public class DifficultyDebuggerScreen : Container
     {
         Debug.Assert(ruleset.ruleset != null);
 
-        return new DebuggerSkinProvidingContainer(DebuggerBeatmap).WithChild(content);
+        return new DebuggerSkinProvidingContainer(DebuggerBeatmap).WithChild(new GridContainer
+        {
+            RelativeSizeAxes = Axes.Both,
+            ColumnDimensions = new Dimension[]
+            {
+                new Dimension(),
+                new Dimension(GridSizeMode.Absolute, 50)
+            },
+            Content = new Drawable[][]
+            {
+                new Drawable[]
+                {
+                    new Container()
+                    {
+                        RelativeSizeAxes = Axes.Both,
+                        FillAspectRatio = 512f / 384f,
+                        FillMode = FillMode.Fit,
+                        Masking = true,
+                        Padding = new MarginPadding(20),
+                        Anchor = Anchor.Centre,
+                        Origin = Anchor.Centre,
+                        Children = new Drawable[]
+                        {
+                            new PlayfieldBorder
+                            {
+                                Alpha = 0.5f,
+                                PlayfieldBorderStyle = { Value = PlayfieldBorderStyle.Full }
+                            },
+                            content
+                        }
+                    },
+                    new Box
+                    {
+                        RelativeSizeAxes = Axes.Both
+                    }
+                }
+            }
+        });
     }
 }

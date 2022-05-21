@@ -87,8 +87,8 @@ public class DifficultyDebuggerScreen : Container
             RelativeSizeAxes = Axes.Both,
             ColumnDimensions = new Dimension[]
             {
-                new Dimension(),
-                new Dimension(GridSizeMode.Absolute, 50)
+                new(),
+                new(GridSizeMode.Absolute, 600)
             },
             Content = new Drawable[][]
             {
@@ -99,18 +99,17 @@ public class DifficultyDebuggerScreen : Container
                         RelativeSizeAxes = Axes.Both,
                         FillAspectRatio = 512f / 384f,
                         FillMode = FillMode.Fit,
-                        Masking = true,
                         Padding = new MarginPadding(20),
                         Anchor = Anchor.Centre,
                         Origin = Anchor.Centre,
                         Children = new Drawable[]
                         {
+                            content,
                             new PlayfieldBorder
                             {
                                 Alpha = 0.5f,
                                 PlayfieldBorderStyle = { Value = PlayfieldBorderStyle.Full }
                             },
-                            content
                         }
                     },
                     new Box

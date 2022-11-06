@@ -64,7 +64,7 @@ public class CalculationsScreen : ScreenWithBeatmapBackground, IBeatSnapProvider
         
         dependencies.CacheAs(Mods.Value);
         
-        clock = new EditorClock(playableBeatmap, beatDivisor) { IsCoupled = false };
+        clock = new EditorClock(playableBeatmap, beatDivisor);
         clock.ChangeSource(loadableBeatmap.Track);
         
         dependencies.CacheAs(clock);

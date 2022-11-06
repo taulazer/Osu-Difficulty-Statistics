@@ -1,3 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using osu.Framework;
+using osu.Framework.Platform;
 
-Console.WriteLine("Hello, World!");
+namespace osu.Rulesets.Difficulty.Statistics.Tests;
+
+public static class Program
+{
+    public static void Main(string[] args)
+    {
+        using DesktopGameHost host = Host.GetSuitableDesktopHost(@"RulesetDifficultyStatistics");
+        host.Run(new StatsTestBrowser());
+    }
+}
